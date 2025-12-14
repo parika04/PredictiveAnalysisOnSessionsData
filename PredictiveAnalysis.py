@@ -16,6 +16,12 @@ import re
 # ============================================================================
 
 data = pd.read_csv('sessions_flattened_ready.csv')
+print("Data Loaded Successfully!")
+print(f"   Shape: {data.shape[0]} rows × {data.shape[1]} columns")
+print(f"\n   First 5 rows:")
+print(data.head())
+print(f"\n   Data Info:")
+print(data.info())
 
 # Extract structured information from strings using regex
 # Pattern matches: [timestamp] IP_address HTTP_METHOD /api/endpoint
@@ -232,7 +238,7 @@ scaler = StandardScaler()
 scaler.fit(df_encoded[numerical_features])
 df_encoded[numerical_features] = scaler.transform(df_encoded[numerical_features])
 
-print("✅ Scaled numerical features")
+print("Scaled numerical features")
 
 # ============================================================================
 # STEP 12: PREPARE DATA FOR REGRESSION (PREDICT SESSION DURATION)
